@@ -1,0 +1,69 @@
+# Informe laboratorio 2: Semáforos en XV6
+
+**Integrantes**: María José Aranda, Martín Nicolás Contrera, Juan Narvaez
+
+## Introducción
+Con el objetivo de entender el tema de la concurrencia, en este proyecto se implementó un sistema de semáforos como mecanismo de sincronización para permitir que diferentes procesos o hilos utilicen el procesador de manera ordenada y segura. Para ello, se debieron crear las syscalls necesarias para que usaran semáforos del estilo semáforos nombrados. Las syscalls mínimas a implementar serán `sem_open`, `sem_close`, `sem_up` y `sem_down` a partir de las syscalls `acquire`, `release`, `sleep`, `wait`, etc.
+
+## Cómo instalar y correr el proyecto
+1. Clonar el repositorio
+2. Instalar el emulador qemu usando:  
+   `sudo apt-get install qemu-system-riscv64 gcc-riscv64-linux-gnu`
+3. Ejecutar el comando `make` para compilar
+4. Iniciar el emulador con el comando `make qemu`
+5. Correr el programa de usuario pingpong con el comando `pingpong N`, donde el argumento **N** es un número natural.
+
+## Estructura del sistema de semáforos
+
+### Tipo de dato para semáforos:
+
+```c
+typedef enum {CLOSE, OPEN} state_t;
+
+struct sem {
+  int value;
+  state_t status;   
+  struct spinlock lock;
+};
+```
+### Funciones individuales
+
+#### int sem_init(void)
+
+Función que inicializa todos los semáforos contenidos en el arreglo, se ejecuta automáticamente al inicio del Sistema Operativo garantizando que estén listos para su uso desde el principio. En este caso serán 100 semáforos disponibles.
+
+#### int sem_open(int sem, int value)
+
+Abre y/o inicializa el semáforo sem con un valor arbitrario value. Hace uso del lock para inicializar los valores de forma segura.
+
+#### int sem_close(int sem)
+
+Libera el semáforo sem, o sea que indica que este proceso no hará más uso de dicho semáforo y está libre para que otros lo puedan utilizar. También se usa lock para cerrar de manera exitosa dicho semáforo.
+
+#### int sem_up(int sem)
+
+Incrementa el semáforo sem desbloqueando los procesos cuando su valor es 0. Indica que algún proceso en espera puede seguir ejecutándose.
+
+#### int sem_down(int sem)
+
+Decrementa el semáforo sem, bloqueando los procesos cuando su valor es 0. El valor del semáforo nunca puede ser menor a 0. Si el valor del semáforo no fuese 0, entonces puede decrementarlo y continuar con su ejecución.
+
+### Funcionamiento en conjunto
+Se los puede utilizar de muchas maneras para evitar condiciones de carrera, deadlocks y para sincronizar la ejecución de procesos. El programa de usuario pingpong es un ejemplo y funciona de la siguiente manera: 
+Utiliza 2 procesos, padre e hijo, que se sincronizan mediante semáforos para alternar entre la impresión de "ping" y "pong". Al iniciar, se valida el argumento **rally** que indica cuántas veces se repetirá la impresión por pantalla. Luego se inicializan 2 semáforos, **sem_parent** con valor 1, lo que permite al proceso hijo decrementarlo y avanzar primero, y **sem_child** con valor 0. En un ciclo que se repite **rally** veces, el proceso hijo disminuye el valor de **sem_parent** con **sem_down**, imprime "ping" y luego incrementa **sem_child** con **sem_up** para que el proceso padre pueda continuar. El proceso padre espera a que **sem_child** tenga un valor positivo para continuar, imprime "pong" y luego incrementa **sem_parent** para que el hijo prosiga. El proceso padre espera a que el hijo termine usando **wait(NULL)**, y finalmente ambos procesos cierran los semáforos con **sem_close**.    
+
+### Llamadas a sistema utilizadas
+
+* acquire()
+* release()
+* wakeup()
+* sleep()
+* argint()
+
+## Forma de trabajo / Experiencia
+
+Comenzamos de a poco siguiendo el enunciado sin problemas y luego fuimos aportando todos los integrantes del equipo para lograr la implementación del sistema de semáforos. Rápidamente pudimos comprender a grandes rasgos el sistema operativo XV6 y cómo hacer para agregar programas de usuario y nuevas syscalls. Luego, para implementar de manera correcta las syscalls, fue necesario más tiempo de lectura ya sea de texto o código.
+Nos comunicamos durante clases y por WhatsApp; por este medio también compartimos algunos archivos de avances que íbamos haciendo, aunque sería mejor usar más GitHub para que sea más claro el trabajo. También podemos mejorar la forma de trabajo usando un flujo de trabajo como GitFlow. En este caso no fueron muy claras las ventajas porque fue un proyecto relativamente corto, de mucha lectura/entendimiento y poca escritura de código.
+
+## Conclusión
+Se lograron los objetivos planteados al implementar un sistema de semáforos para gestionar la concurrencia entre procesos. A través de las syscalls `sem_open`, `sem_close`, `sem_up` y `sem_down`, se estableció un mecanismo de sincronización de procesos eficaz que previene condiciones de carrera y deadlocks. La experiencia práctica con el programa "pingpong" permitió comprender cómo los semáforos facilitan la coordinación entre procesos de manera ordenada, y el funcionamiento de syscalls como `acquire`, `release`, `sleep`, `wait`, logrando sincronizar la escritura por pantalla de las cadenas "ping" y "pong" de manera ordenada con el sistema de semáforos implementado.
