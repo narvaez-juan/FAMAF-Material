@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     array_dump(array, length);
 
     /* print if array is sorted or not */
-    bool sorted_array = array_is_sorted(array, length);
+    mybool sorted_array = array_is_sorted(array, length);
 
     if (sorted_array) {
         printf("El arreglo está ordenado\n");

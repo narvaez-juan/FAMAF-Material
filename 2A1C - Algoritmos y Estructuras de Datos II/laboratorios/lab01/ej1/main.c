@@ -82,6 +82,7 @@ unsigned int array_from_file(int array[],
             exit(EXIT_FAILURE);
         }
     }
+    fclose(file);
 
     return length;
 }
@@ -89,8 +90,7 @@ unsigned int array_from_file(int array[],
 void array_dump(int a[], unsigned int length) {
     /* Print the array in the following format: [ a, b, c] */
     printf("[");
-    for (unsigned int i = 0; i < length; i++)
-    {
+    for (unsigned int i = 0; i < length; i++) {
         printf(" %i", a[i]);
         if (i != length - 1)
         {

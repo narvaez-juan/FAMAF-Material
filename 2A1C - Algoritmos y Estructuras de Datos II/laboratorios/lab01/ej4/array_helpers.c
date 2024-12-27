@@ -68,12 +68,10 @@ bool array_is_sorted(int a[], unsigned int length) {
     unsigned int i = 0;
     bool sorted = true;
 
-    while (i < length && (sorted))
+    while (i < length && sorted)
     {
-        if (tmp > a[i])
-        {
-            sorted = false;
-        }
+        sorted = tmp <= a[i];
+        tmp = a[i];
         i++;
     }
 

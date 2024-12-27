@@ -12,6 +12,21 @@ static void dump(char a[], unsigned int length) {
     printf("\n\n");
 }
 
+void print_help(char *program_name) {
+    /* Print the usage help of this program. */
+    printf("Usage: %s <input file path>\n\n"
+           "Loads pairs of items given in a file in disk that contains "
+           "an index and character elements, sort them, and then prints "
+           "the actual phrase on the screen"
+           "\n\n"
+           "The input file must have the following format:\n"
+           "<int> -> *<char>*\n"
+           "<int> -> *<char>*\n"
+           "<int> -> *<char>*\n"
+           "...\n\n",
+           program_name);
+}
+
 unsigned int data_from_file(const char *path,
                             unsigned int indexes[],
                             char letters[],
@@ -75,7 +90,7 @@ static void sort(char sorted[],
 int main(int argc, char *argv[]) {
     if (argc != 2)
     {
-        fprintf(stderr, "Use: %s <file>\n", argv[0]);
+        print_help(argv[0]);
         exit(EXIT_FAILURE);
     }
 

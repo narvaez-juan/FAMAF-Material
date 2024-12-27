@@ -15,19 +15,23 @@ unsigned int array_from_stdin(int array[],
     int fscanf_value;
 
     printf("Enter length: ");
-    fscanf(stdin, "%u", &length);
-
-    if (length > max_size)
+    fscanf_value = fscanf(stdin, " %u ", &length); 
+    if (fscanf_value == EOF) 
     {
-        printf("Too long array\n");
+        printf("\ninput must be exactly one argument\n");
         exit(EXIT_FAILURE);
     }
 
-    for (unsigned int i = 0; i < length; i++)
+    if (length > max_size) 
+    {
+        printf("invalid length\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for (unsigned int i = 0; i < length; i++) 
     {
         fscanf_value = fscanf(stdin, "%d", &array[i]);
-        if (fscanf_value == EOF)
-        {
+        if (fscanf_value == EOF) {
             length = i;
         }
     }

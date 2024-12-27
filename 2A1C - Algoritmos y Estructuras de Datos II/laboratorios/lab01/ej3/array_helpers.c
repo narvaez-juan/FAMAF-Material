@@ -43,6 +43,7 @@ unsigned int array_from_file(int array[],
             exit(EXIT_FAILURE);
         }
     }
+    fclose(file);
 
     return length;
 }
