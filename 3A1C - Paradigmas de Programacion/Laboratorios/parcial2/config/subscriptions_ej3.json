@@ -1,0 +1,11 @@
+[
+    {
+        "url": "localhost/infobae_feed.xml",
+        "urlType": "localhost"
+    },
+    {
+        "url": "localhost/lanacion_feed.xml",
+        "urlType": "localhost"
+    }
+
+]

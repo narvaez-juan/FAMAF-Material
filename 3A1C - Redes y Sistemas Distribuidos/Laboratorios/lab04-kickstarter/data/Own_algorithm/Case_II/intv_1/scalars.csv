@@ -1,0 +1,41 @@
+run,type,module,name,attrname,attrvalue,value
+General-0-20250524-22:49:12-15298,runattr,,,configname,General,
+General-0-20250524-22:49:12-15298,runattr,,,datetime,20250524-22:49:12,
+General-0-20250524-22:49:12-15298,runattr,,,datetimef,20250524-224912,
+General-0-20250524-22:49:12-15298,runattr,,,experiment,General,
+General-0-20250524-22:49:12-15298,runattr,,,inifile,omnetpp.ini,
+General-0-20250524-22:49:12-15298,runattr,,,iterationvars,,
+General-0-20250524-22:49:12-15298,runattr,,,iterationvarsd,,
+General-0-20250524-22:49:12-15298,runattr,,,iterationvarsf,,
+General-0-20250524-22:49:12-15298,runattr,,,measurement,,
+General-0-20250524-22:49:12-15298,runattr,,,network,Network,
+General-0-20250524-22:49:12-15298,runattr,,,processid,15298,
+General-0-20250524-22:49:12-15298,runattr,,,repetition,0,
+General-0-20250524-22:49:12-15298,runattr,,,replication,#0,
+General-0-20250524-22:49:12-15298,runattr,,,resultdir,results,
+General-0-20250524-22:49:12-15298,runattr,,,runnumber,0,
+General-0-20250524-22:49:12-15298,runattr,,,seedset,0,
+General-0-20250524-22:49:12-15298,config,,,network,Network,
+General-0-20250524-22:49:12-15298,config,,,sim-time-limit,200s,
+General-0-20250524-22:49:12-15298,config,,,Network.node[0].app.interArrivalTime,exponential(1),
+General-0-20250524-22:49:12-15298,config,,,Network.node[0].app.packetByteSize,125000,
+General-0-20250524-22:49:12-15298,config,,,Network.node[0].app.destination,5,
+General-0-20250524-22:49:12-15298,config,,,Network.node[2].app.interArrivalTime,exponential(1),
+General-0-20250524-22:49:12-15298,config,,,Network.node[2].app.packetByteSize,125000,
+General-0-20250524-22:49:12-15298,config,,,Network.node[2].app.destination,5,
+General-0-20250524-22:49:12-15298,scalar,Network.node[0].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[0].app,Number of packets,,,0
+General-0-20250524-22:49:12-15298,scalar,Network.node[1].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[1].app,Number of packets,,,0
+General-0-20250524-22:49:12-15298,scalar,Network.node[2].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[2].app,Number of packets,,,0
+General-0-20250524-22:49:12-15298,scalar,Network.node[3].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[3].app,Number of packets,,,0
+General-0-20250524-22:49:12-15298,scalar,Network.node[4].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[4].app,Number of packets,,,0
+General-0-20250524-22:49:12-15298,scalar,Network.node[5].app,Average delay,,,6.9039952697103
+General-0-20250524-22:49:12-15298,scalar,Network.node[5].app,Number of packets,,,379
+General-0-20250524-22:49:12-15298,scalar,Network.node[6].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[6].app,Number of packets,,,0
+General-0-20250524-22:49:12-15298,scalar,Network.node[7].app,Average delay,,,NaN
+General-0-20250524-22:49:12-15298,scalar,Network.node[7].app,Number of packets,,,0

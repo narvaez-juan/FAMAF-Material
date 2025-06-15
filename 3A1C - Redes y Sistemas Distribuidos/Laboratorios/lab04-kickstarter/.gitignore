@@ -1,0 +1,4 @@
+out/**/*
+results/**/*
+trash.md
+*.o

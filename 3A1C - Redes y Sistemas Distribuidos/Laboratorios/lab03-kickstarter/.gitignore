@@ -1,0 +1,15 @@
+results/
+trash.md
+out/clang-debug/
+out/clang-debug/*.o.d
+out/clang-release/*
+.settings/language.settings.xml
+results/*
+out/clang-release/
+out/clang-release/TransportReceiver.o
+out/clang-release/Generator.o
+out/clang-release/TransportReceiver.o.d
+out/clang-release/Sink.o
+out/clang-release/Queue.o
+out/clang-release/Generator.o.d
+out/clang-debug/*

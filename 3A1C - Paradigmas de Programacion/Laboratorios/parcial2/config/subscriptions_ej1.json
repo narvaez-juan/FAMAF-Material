@@ -1,0 +1,12 @@
+[
+    {
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+        "urlType": "rss",
+        "download": "/home/narvaezjuan/Documentos/Business.txt"
+    },
+    {
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+        "urlType": "rss"
+    }
+
+]

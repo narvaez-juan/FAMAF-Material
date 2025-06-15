@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Parcial2-Lab" default="compile" basedir=".">
+   <description>Building Simple Java Applications</description>
+
+   <target name="clean">
+         <delete dir="bin" />
+   </target>
+
+   <target name="compile" description="Compile the Java code." depends="clean">
+      <mkdir dir="bin"/>
+      <javac srcdir="src" destdir="bin" includeantruntime="True">
+         <classpath>
+            <pathelement path="./lib/json-20240303.jar"/>
+         </classpath>
+      </javac>
+   </target>
+
+ <target name="run_ok" depends="compile"
+            description="Run the Java application.">
+         <java classname="FeedReaderMain_OK" fork="true">
+            <classpath>
+               <pathelement path="bin"/>
+               <pathelement path="./lib/json-20240303.jar"/>
+            </classpath>
+         </java>
+   </target>
+
+
+   <target name="run_ej1" depends="compile"
+            description="Run the Java application.">
+         <java classname="FeedReaderMain_ej1" fork="true">
+            <classpath>
+               <pathelement path="bin"/>
+               <pathelement path="./lib/json-20240303.jar"/>
+            </classpath>
+         </java>
+   </target>
+
+   <target name="run_ej2" depends="compile"
+            description="Run the Java application.">
+         <java classname="FeedReaderMain_ej2" fork="true">
+            <classpath>
+               <pathelement path="bin"/>
+               <pathelement path="./lib/json-20240303.jar"/>
+            </classpath>
+         </java>
+   </target>
+
+   <target name="run_ej3" depends="compile"
+            description="Run the Java application.">
+         <java classname="FeedReaderMain_ej3" fork="true">
+            <classpath>
+               <pathelement path="bin"/>
+               <pathelement path="./lib/json-20240303.jar"/>
+            </classpath>
+         </java>
+   </target>
+
+</project>
