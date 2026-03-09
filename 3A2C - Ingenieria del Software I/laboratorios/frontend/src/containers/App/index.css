@@ -1,7 +1,0 @@
-@import url('https://fonts.googleapis.com/css2?family=Metamorphous&display=swap');
-
-@import "tailwindcss";
-
-@theme {
-  --font-metamorphous: "Metamorphous", cursive;
-}
