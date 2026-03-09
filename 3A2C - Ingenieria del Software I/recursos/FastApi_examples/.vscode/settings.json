@@ -1,0 +1,11 @@
+{
+    "workbench.colorCustomizations": {
+        "editor.background": "#0e293c",
+    },
+    "editor.tokenColorCustomizations": {
+        "functions": "#00e1c6",
+        "keywords": "#5cf55f",
+        "numbers": "#c6daec", 
+    },
+    "python.linting.enabled": false
+}

@@ -1,0 +1,50 @@
+.contact {
+  padding: 10px;
+  margin: 10px;
+  color: rgb(42, 48, 53);
+  display: flex;
+  flex-direction: column;
+  background-color: #fdc04f;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px gray;
+}
+
+.name {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 0.2em;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #555555;
+}
+
+.header button {
+  height: 25px;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 0.2em;
+}
+
+.tags {
+  margin-top: 0.2em;
+}
+
+.tag {
+  border-radius: 5px;
+  width: 35px;
+  padding: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  text-align: center;
+  color: #333333;
+  background-color: #aaaaaa;
+}
